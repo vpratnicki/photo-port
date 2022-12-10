@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from './components/Gallery';
-import ConfactForm from './components/Contact';
+import ContactForm from './components/Contact';
 
 
 function App() {
@@ -17,6 +17,8 @@ function App() {
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  const [contactSelected, setContactSelected] = useState(false);
+
 
 
   return (
@@ -25,13 +27,18 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       />
       <main>
-        <div>
-          <ConfactForm />
-          <Gallery currentCategory={currentCategory} />
-          <About />
-        </div>
+      {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory} />
+            <About />
+          </>
+        ) : (
+            <ContactForm />
+          )}
       </main>
     </div>
   );
