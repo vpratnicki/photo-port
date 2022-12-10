@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { validateEmail } from '../../utils/helpers';
 
 
-function ConfactForm() {
+function ContactForm() {
     const [formState, setFormState] = useState({ name: '', email: '', message: '' });
     const { name, email, message } = formState;
     const [errorMessage, setErrorMessage] = useState('');
@@ -34,7 +34,7 @@ function ConfactForm() {
 
   return (
     <section>
-      <h1>Contact me</h1>
+      <h1 data-testid="contact">Contact me</h1>
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -59,4 +59,4 @@ function ConfactForm() {
   );
 }
 
-export default ConfactForm;
+export default ContactForm;
